@@ -76,3 +76,14 @@
     @apply bg-background text-foreground;
   }
 }
+
+body {
+  background-image: url("/img.png");
+  /* stretch the bg image to fit */
+  background-size: 100% 100%; /* stretch the bg image to fit */
+  background-repeat: no-repeat; /* prevent the image from tiling */
+  height: 100vh;
+}
+html, body {
+  width: 100%;
+}

@@ -1,31 +1,24 @@
 import { ConvexAiChat } from "@/aiChat";
-import { Link } from "@/components/typography/link";
 import { Button } from "@/components/ui/button";
 
 function App() {
+
   return (
-    <main className="container max-w-2xl flex flex-col gap-8">
-      <h1 className="text-4xl font-extrabold my-8 text-center">
-        AI Chat with Convex Vector Search
+    <main className="container max-w-2xl flex flex-col gap-8 w-full">
+      <h1 className="text-4xl font-extrabold my-8 text-center text-black">
+        An Adventurer's Guide to Kiln
       </h1>
-      <p>Click the button to open the chat window</p>
-      <p>
+      <section className="flex flex-col justify-center items-center w-full">
         <ConvexAiChat
           convexUrl={import.meta.env.VITE_CONVEX_URL as string}
-          name="Lucky AI Bot"
-          infoMessage="AI can make mistakes. Verify answers."
-          welcomeMessage="Hey there, what can I help you with?"
+          name="The oracle"
+          infoMessage="The oracles suggestions are subject to interpretation."
+          welcomeMessage="I am the oracle of Kiln. Ask me anything."
           renderTrigger={(onClick) => (
-            <Button onClick={onClick}>Open AI chat</Button>
+            <Button className="absolute bottom-6 right-6" onClick={onClick}>Show Chat</Button>
           )}
         />
-      </p>
-      <p>
-        Check out{" "}
-        <Link target="_blank" href="https://docs.convex.dev/home">
-          Convex docs
-        </Link>
-      </p>
+      </section>
     </main>
   );
 }

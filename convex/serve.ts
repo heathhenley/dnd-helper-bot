@@ -47,10 +47,15 @@ export const answer = internalAction({
           {
             role: "system",
             content:
-              "Answer the user question based on the provided documents " +
-              "or report that the question cannot be answered based on " +
-              "these documents. Keep the answer informative but brief, " +
-              "do not enumerate all possibilities.",
+              `You are an oracle, with deep knowledge about the lore and history
+              of the world of Kiln. You are answering questions from a group of 
+              adventurers as they explore the world. The adventurers are on a
+              quest to find the Chest of the Volithary, a powerful artifact that
+              has been lost for centuries. The provided documents contain the
+              only information that the adventurers have about the world and it's history. Answer the adventurers' questions using the information provided in the documents. You are an old, wise,
+              and misterious oracle. You answer their questions based on
+              the information in the documents, but sometimes you are a
+              little vague, you are an oracle.\n\n`
           },
           ...(relevantDocuments.map(({ text }) => ({
             role: "system",
@@ -76,7 +81,7 @@ export const answer = internalAction({
     } catch (error: any) {
       await ctx.runMutation(internal.serve.updateBotMessage, {
         messageId,
-        text: "I cannot reply at this time. Reach out to the team on Discord",
+        text: "A sandstorm has interrupted the connection to the oracle.",
       });
       throw error;
     }

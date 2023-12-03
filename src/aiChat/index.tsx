@@ -34,7 +34,7 @@ export function ConvexAiChat({
   welcomeMessage: string;
   renderTrigger: (onClick: () => void) => ReactNode;
 }) {
-  const [hasOpened, setHasOpened] = useState(false);
+  const [hasOpened, setHasOpened] = useState(true);
   const [dialogOpen, setDialogOpen] = useState(false);
 
   const handleCloseDialog = useCallback(() => {
@@ -208,7 +208,7 @@ export function Dialog({
         </button>
       </div>
       <div
-        className="flex-grow overflow-scroll gap-2 flex flex-col mx-2 pb-2 rounded-lg"
+        className="flex-grow overflow-scroll gap-2 flex flex-col mx-2 pb-2 rounded-lg px-4"
         ref={listRef}
         onWheel={() => {
           setScrolled(true);
