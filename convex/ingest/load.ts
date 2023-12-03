@@ -15,8 +15,7 @@ export const scrapeSite = internalAction({
     const xml = await response.text();
     const $ = load(xml, { xmlMode: true });
     const urls = $("url > loc")
-      // @ts-ignore
-      .map((i, elem) => $(elem).text())
+      .map((_, elem) => $(elem).text())
       .get()
       .slice(0, limit);
     await map(urls, (url) =>
